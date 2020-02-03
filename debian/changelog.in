@@ -1,0 +1,12 @@
+ssi (__PROJECT_VERSION__-__PACKAGE_REVISION__) bionic; urgency=medium
+
+  * Create minimal project structure.
+
+ -- Konstantin Trushin <konstantin.trushin@gmail.com>  Mon, 6 Jan 2020 15:10:00 +0300
+
+wpd (0.0.0-1) bionic; urgency=medium
+
+  * Introduce non-existing version 0.0.0 in order to suppress
+  `new-package-should-close-itp-bug` lintian warning.
+
+ -- Konstantin Trushin <konstantin.trushin@gmail.com>  Mon, 6 Jan 2020 15:00:00 +0300

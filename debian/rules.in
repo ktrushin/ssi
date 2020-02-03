@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	LC_ALL=C.UTF-8 CXX='g++-8' CXXFLAGS='-g' \
+	meson --buildtype=release -Ddefault_library=both \
+	--prefix=/usr --sysconfdir=/etc \
+	--localstatedir=/var --libdir=lib/x86_64-linux-gnu \
+	obj-x86_64-linux-gnu

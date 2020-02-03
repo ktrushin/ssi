@@ -1,0 +1,37 @@
+Source: ssi
+Section: misc
+Priority: optional
+Standards-Version: 4.1.4
+Maintainer: Konstantin Trushin <konstantin.trushin@gmail.com>
+Vcs-Browser: https://www.github.com/ktrushin/wpd
+Build-Depends: g++-8, python3 (>= 3.5), ninja-build (>= 1.8), meson (>= 0.52.0),
+	debhelper, fakeroot, libboost-date-time1.65-dev, libboost-thread1.65-dev,
+	libboost-program-options1.65-dev, libjemalloc-dev
+
+Package: libssi__SOVERSION__
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Homepage: https://www.github.com/ktrushin/wpd
+Architecture: amd64
+Description: Some System Information - library
+	Some System Information (ssi) is a project to demonstrate
+	environment and tools for C++ development.
+
+Package: libssi-dev
+Section: libdevel
+Depends: ${misc:Depends}, libssi__SOVERSION__ (= ${binary:Version}),
+	libboost-date-time1.65-dev, libboost-thread1.65-dev, libjemalloc-dev
+Homepage: https://www.github.com/ktrushin/wpd
+Architecture: amd64
+Description: Some System Information - library development files
+	Some System Information (ssi) is a project to demonstrate
+	environment and tools for C++ development.
+
+Package: ssi
+Section: misc
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Homepage: https://www.github.com/ktrushin/wpd
+Architecture: amd64
+Description: Some System Information - binary
+	Some System Information (ssi) is a project to demonstrate
+	environment and tools for C++ development.
