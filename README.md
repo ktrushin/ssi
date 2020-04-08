@@ -60,7 +60,7 @@ The rest of the instructions are executed in the container.
 Run the formatter and the linter:  
 ```
 container_prompt> CLANG_FORMAT='clang-format-8' ./tools/clang-format.sh
-container_prompt> CLANT_TIDY='clang-tidy-8' ./tools/clang-tidy.sh
+container_prompt> CLANG_TIDY='clang-tidy-8' ./tools/clang-tidy.sh
 ```
 
 Compile the project and execute the resulting binary:
