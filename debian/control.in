@@ -4,9 +4,9 @@ Priority: optional
 Standards-Version: 4.1.4
 Maintainer: Konstantin Trushin <konstantin.trushin@gmail.com>
 Vcs-Browser: https://www.github.com/ktrushin/wpd
-Build-Depends: g++-8, python3 (>= 3.5), ninja-build (>= 1.8), meson (>= 0.52.0),
-	debhelper, fakeroot, libboost-date-time1.65-dev, libboost-thread1.65-dev,
-	libboost-program-options1.65-dev, libjemalloc-dev
+Build-Depends: g++, python3 (>= 3.8), ninja-build (>= 1.10), meson (>= 0.53.2),
+	debhelper, fakeroot, libboost-date-time-dev, libboost-thread-dev,
+	libboost-program-options-dev, libjemalloc-dev
 
 Package: libssi__SOVERSION__
 Section: libs
@@ -20,7 +20,7 @@ Description: Some System Information - library
 Package: libssi-dev
 Section: libdevel
 Depends: ${misc:Depends}, libssi__SOVERSION__ (= ${binary:Version}),
-	libboost-date-time1.65-dev, libboost-thread1.65-dev, libjemalloc-dev
+	libboost-date-time-dev, libboost-thread-dev, libjemalloc-dev
 Homepage: https://www.github.com/ktrushin/wpd
 Architecture: amd64
 Description: Some System Information - library development files

@@ -1,11 +1,9 @@
 #!/bin/sh
 
 ######################### READ AND VALIDATE USER INPUT #########################
-prog="docker.sh"
+prog=$(basename $0)
 
-default_distrib_codename="bionic"
-# At present, only one Ubuntu distribution codename is allowed.
-# In the future, `focal` may be also supported.
+default_distrib_codename="focal"
 allowed_distrib_codenames="$default_distrib_codename"
 
 codenames_msg=""
@@ -22,7 +20,7 @@ Description:
     The program must be called from the project's root directory.
 
 Usage:
-    $prog [--codename <codename>]
+    $prog [--distrib_codename <codename>]
 
 Options:
     --distrib_codename <codename>
@@ -72,8 +70,7 @@ container_name="${image_name}_${image_tag}"
 
 ########### CREATE DOCKER CONTAINER AND CONTAINER THEY DO NOT EXIST ############
 if [ -z "$(docker image ls -q $image_name:$image_tag)" ]; then
-    echo "no image"
-    docker image build -f docker/Dockerfile_ubuntu_${distrib_codename} \
+    docker image build -f docker/ubuntu_${distrib_codename}.dockerfile \
     --build-arg username=$(id -un) \
     --build-arg uid=$(id -u) \
     --build-arg gid=$(id -g) \

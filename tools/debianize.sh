@@ -1,7 +1,7 @@
 #/bin/sh
 
 ######################### READ AND VALIDATE USER INPUT #########################
-prog="debianize.sh"
+prog=$(basename $0)
 
 help_msg="\
 Description:
@@ -15,7 +15,7 @@ Usage:
   $prog [--package_revision <rev>] <debuld_args>
 
 Arguments:
-    <debuld_args>       Arguments which are passed unchanged to debuild command.
+  <debuld_args>         Arguments which are passed unchanged to debuild command.
 
 Options:
   --package_revision    Revision of the generated package(s).
@@ -24,13 +24,13 @@ Options:
 
 Examples:
   Build the source package and all binary packages without signing:
-  $ prog -uc -us
+    $prog -uc -us
 
   Build and sign a source package of revision 3:
-  $ prog --package_revision 3 -S -sa -k<key_id>
+    $prog --package_revision 3 -S -sa -k<key_id>
 
   Build and sign the source package and all binary packages or revision 4:
-  $ prog --package_revision 4 -k<key_id>
+    $prog --package_revision 4 -k<key_id>
 
   In the above examples, <key_id> is a PGP key identifier."
 
@@ -78,6 +78,8 @@ trap cd_to_project_source_dir EXIT
 
 set -ex
 
+distrib_codename=$(cat /etc/lsb-release | grep DISTRIB_CODENAME | \
+    awk -F= '{print $2}')
 project_name=$(basename $project_source_dir)
 project_version=$(./get_version.sh --project)
 soversion=$(./get_version.sh --shared_object)
@@ -109,7 +111,8 @@ cd $build_dir/$package_full_name
 cp LICENSE debian/copyright
 cd $build_dir/$package_full_name/debian
 for file in *.in; do
-    sed -e s/__PROJECT_VERSION__/$project_version/g \
+    sed -e s/__DISTRIB_CODENAME__/$distrib_codename/g \
+        -e s/__PROJECT_VERSION__/$project_version/g \
         -e s/__SOVERSION__/$soversion/g \
         -e s/__LIBRARY_SUFFIX__/$library_suffix/g \
         -e s/__PACKAGE_REVISION__/$package_revision/g \
