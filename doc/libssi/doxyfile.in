@@ -21,3 +21,5 @@ ALIASES += side_effects="\par Side Effects^^"
 INPUT                  = @project_source_root@/include/ssi
 RECURSIVE              = YES
 GENERATE_LATEX         = NO
+DISABLE_INDEX          = YES
+GENERATE_TREEVIEW      = YES
