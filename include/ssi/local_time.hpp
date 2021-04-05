@@ -4,7 +4,8 @@
 #include "boost/date_time/posix_time/posix_time.hpp"
 
 namespace ssi {
-/// @brief Get local time (in the machine's timezone) with one-second resolution.
+/// @brief Get local time (in the machine's timezone) with one-second
+/// resolution.
 ///
 /// The sole purpose of using `boost::posix_time::ptime` as a return type
 /// is to demonstrate the public dependency of ssi library on
