@@ -59,7 +59,7 @@ image_name=$proj_name
 image_tag=$distrib_codename
 container_name="${image_name}_${image_tag}"
 
-########### CREATE DOCKER CONTAINER AND CONTAINER THEY DO NOT EXIST ############
+############# CREATE DOCKER IMAGE AND CONTAINER THEY DO NOT EXIST ##############
 if [ -z "$(docker image ls -q $image_name:$image_tag)" ]; then
   docker image build -f docker/ubuntu_${distrib_codename}.dockerfile \
     --build-arg username=$(id -un) \
