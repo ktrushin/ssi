@@ -3,9 +3,9 @@
 
 /// My namespace
 namespace ssi {
-/// @brief Get the number of parallel threads of execution.
+/// @brief Returns the number of parallel threads of execution.
 ///
-/// @return number of parallel threads
+/// @returns number of parallel threads
 ///
 /// @exception_guarantee noexcept
 /// @side_effects none
