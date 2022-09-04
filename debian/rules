@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+override_dh_auto_configure:
+	LC_ALL=C.UTF-8 CXX='g++' CXXFLAGS='-g' \
+	meson --buildtype=release -Ddefault_library=both \
+		--prefix=/usr --sysconfdir=/etc \
+		--localstatedir=/var --libdir=lib/x86_64-linux-gnu \
+		obj-x86_64-linux-gnu
+
+%:
+	dh $@ --parallel

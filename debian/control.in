@@ -1,0 +1,44 @@
+Source: ssi
+Section: misc
+Priority: optional
+Standards-Version: 4.1.4
+Maintainer: Konstantin Trushin <konstantin.trushin@gmail.com>
+Vcs-Browser: https://www.github.com/ktrushin/ssi
+Build-Depends: g++, python3 (>= 3.8), ninja-build (>= 1.10), meson (>= 0.53.2),
+  jq, debhelper, fakeroot, libboost-date-time-dev, libboost-thread-dev,
+  libboost-program-options-dev, libjemalloc-dev, doxygen, graphviz
+
+Package: libssi__SSI_SOVERSION__
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Homepage: https://www.github.com/ktrushin/ssi
+Architecture: amd64
+Description: Some System Information - library
+  Some System Information (ssi) is a project to demonstrate
+  environment and tools for C++ development.
+
+Package: libssi-dev
+Section: libdevel
+Depends: ${misc:Depends}, libssi__SSI_SOVERSION__ (= ${binary:Version}),
+  libboost-date-time-dev, libboost-thread-dev, libjemalloc-dev
+Homepage: https://www.github.com/ktrushin/ssi
+Architecture: amd64
+Description: Some System Information - library development files
+  Some System Information (ssi) is a project to demonstrate
+  environment and tools for C++ development.
+
+Package: libssi-doc
+Section: doc
+Architecture: all
+Description: Some System Information - library documentation
+  Some System Information (ssi) is a project to demonstrate
+  environment and tools for C++ development.
+
+Package: ssi
+Section: misc
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Homepage: https://www.github.com/ktrushin/ssi
+Architecture: amd64
+Description: Some System Information - binary
+  Some System Information (ssi) is a project to demonstrate
+  environment and tools for C++ development.

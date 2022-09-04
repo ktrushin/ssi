@@ -1,0 +1,12 @@
+ssi (__PROJECT_VERSION__-__PACKAGE_REVISION__) __DISTRIB_CODENAME__; urgency=medium
+
+  * Create minimal project structure.
+
+ -- Konstantin Trushin <konstantin.trushin@gmail.com>  Sun, 4 Sep 2022 15:10:00 +0400
+
+ssi (0.0.0-1) __DISTRIB_CODENAME__; urgency=medium
+
+  * Introduce non-existing version 0.0.0 in order to suppress
+  `new-package-should-close-itp-bug` lintian warning.
+
+ -- Konstantin Trushin <konstantin.trushin@gmail.com>  Sun, 4 Sep 2022 15:00:00 +0400
