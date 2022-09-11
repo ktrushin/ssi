@@ -35,10 +35,8 @@ container `ssi-u20` or `ssi-u22` which features g++ and clang++ compilers.
 The build may be sped up using `ccache`. The project also makes use of
 `clang-format` and `clang-tidy` to ensure better code style and quality.
 As a build system, [Meson](https://mesonbuild.com/) is used. In my optinion,
-it provides much more cleaner and more logical DSL than CMake does.
-The only thing Meson misses is some analog of
-[CPack](https://cmake.org/cmake/help/v3.16/module/CPack.html).
-However, the project overcomes that with a `tools/build_deb.sh` script.
+it provides much more logical and cleaner DSL than [CMake](https://cmake.org)
+does. The project documentation is created with [Doxygen](https://doxygen.nl/).
 
 ### Some instructions
 
@@ -47,7 +45,7 @@ execute bash in the container (requires Docker 18.09 or higher):
 ```
 host_promtp> git clone git@github.com:ktrushin/ssi.git
 host_prompt> cd ssi
-host_prompt> ./tools/docker.sh 22.04
+host_prompt> ./tools/docker.sh -v 22.04
 ```
 The rest of the instructions are executed in the container.
 
