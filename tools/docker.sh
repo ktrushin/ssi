@@ -20,8 +20,9 @@ Arguments:
 Options:
   -h  Print this help message and exit
 
-  -v  Version of the Ubuntu distribution to build the Docker image from.
-      Supported values: 20.04 and 22.04. Default is 22.04."
+  -v <ubuntu_version>
+    Version of the Ubuntu distribution to build the Docker image from.
+    Supported values: 20.04 and 22.04. Default is 22.04."
 
 abort() {
     echo "Error: $1" >&2
@@ -66,7 +67,7 @@ fi
 if [ -z "$(docker container ls -aq --filter name=$container_name)" ]; then
   docker container create \
     --tty --interactive --privileged --cap-add=SYS_PTRACE \
-    --name=$container_name --hostname=$container_name --user=$LOGNAME \
+    --name=$container_name --hostname=$container_name --user=$(id -un) \
     --volume=$HOME:$HOME --workdir=$(pwd) \
     $image_name:$image_tag
 fi

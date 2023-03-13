@@ -35,13 +35,14 @@ ENV LANG=$locale LC_ALL=$locale
 
 # Install the packages for C++ development and convenient command line usage
 RUN apt-get update && apt-get install --yes --no-install-recommends \
-        sudo lsb-release bash-completion coreutils tree less vim neovim \
+        sudo apt-file lsb-release \
+        bash-completion coreutils tree less vim neovim \
         ack jq mawk curl wget git gnupg2 ca-certificates \
         man-db manpages manpages-dev manpages-posix manpages-posix-dev \
         binutils g++ clang clang-format clang-tidy ccache \
         gdb lldb ltrace strace google-perftools valgrind \
         autoconf automake m4 autotools-dev libtool \
-        make ninja-build cmake cmake-data meson pkg-config \
+        make ninja-build cmake cmake-data meson scons pkg-config \
         build-essential debhelper devscripts fakeroot dput \
         libboost-all-dev libjemalloc-dev libgoogle-perftools-dev \
         python3 python3-dev python3-setuptools python3-pip python3-wheel \
