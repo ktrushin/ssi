@@ -14,7 +14,7 @@ Description:
   directory.
 
 Usage:
-  $prog [-d <build_dir>] [-r <package_revision>] [<debuld_args>]
+  $prog [-d <build_dir>] [-r <package_revision>] [ -o <debuild_args>]
 
 Options:
   -d <build_dir>
@@ -25,7 +25,7 @@ Options:
     Revision of the generated package(s). Must be a positive integer number.
     Default is 1.
 
-  -o <debuld_args>
+  -o <debuild_args>
     Arguments which are passed unchanged to the 'debuild' command.
     By default, no args are passed to 'debuild'. Note: it is recommended to
     enclose the debuild arguments into signle or double quotes in order to
