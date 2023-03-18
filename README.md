@@ -1,14 +1,6 @@
 # ssi
-Some System Information - a toy project for demonstrating C++ development
-environment and toolchain usage.
-
-The main purpose of this project is to serve as a template for other
-C++ projects. In order to isolate development environment from the
-host machine configuration, a Docker container based on Ubuntu 22.04 is used.
-Development toolchain is installed into the container and project's source
-directory is mapped there. As a result, one can edit sources on the
-host machine using his favorite editor or IDE and compile them
-within the container.
+The main purpose of this project is serving as a prototype for other C and C++
+projects.
 
 The project implements a simple binary (`ssi`) which is linked against
 a library (`libssi`). Neither the library nor the binary solve any practical
@@ -29,12 +21,9 @@ has a separate subdirectory for each library/binary (only `ssi` at the moment).
 That makes it easy to extend the project with other libraries/binaries just by
 placing their subdirectories alongside with existing one.
 
-As a base system for the development environment, one may use either
-Ubuntu 20.04 or Ubuntu 22.04. Script `./tools/docker.sh` creates Docker
-container `ssi-u20` or `ssi-u22` which features g++ and clang++ compilers.
-The build may be sped up using `ccache`. The project also makes use of
-`clang-format` and `clang-tidy` to ensure better code style and quality.
-As a build system, [Meson](https://mesonbuild.com/) is used. In my optinion,
+The development environment is created with
+[Ganvigar](https://github.com/ktrushin/ganvigar). The project makes use of
+the [Meson](https://mesonbuild.com/) build system. In my optinion,
 it provides much more logical and cleaner DSL than [CMake](https://cmake.org)
 does. The project documentation is created with [Doxygen](https://doxygen.nl/).
 
@@ -43,9 +32,10 @@ does. The project documentation is created with [Doxygen](https://doxygen.nl/).
 Create Docker image and container if that hasn't been done yet,
 execute bash in the container (requires Docker 18.09 or higher):
 ```
+host_promtp> git clone git@github.com:ktrushin/ganvigar.git
 host_promtp> git clone git@github.com:ktrushin/ssi.git
 host_prompt> cd ssi
-host_prompt> ./tools/docker.sh -v 22.04
+host_prompt> ../ganvigar/devenv-launch ganvigar/dev.conf
 ```
 The rest of the instructions are executed in the container.
 
