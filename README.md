@@ -51,8 +51,8 @@ container_prompt> ./tools/clang-tidy.sh
 
 Compile the project with g++ and execute the resulting binary:
 ```
-container_prompt> CXX='ccache g++' meson -Db_asneeded=false _build_gcc
-container_prompt> ninja -v -C _build_gcc -j$(nproc)
+container_prompt> CXX='ccache g++' meson setup -Db_asneeded=false _build_gcc
+container_prompt> meson compile -v -C _build_gcc -j$(nproc)
 container_prompt> ./_build_gcc/bin/ssi
 Number of threads: 4
 Local time: 2022-Set-04 15:20:53
@@ -60,8 +60,8 @@ Local time: 2022-Set-04 15:20:53
 
 Compile the project with clang++ and execute the resulting binary:
 ```
-container_prompt> CXX='ccache clang++' meson -Db_asneeded=false _build_clang
-container_prompt> ninja -v -C _build_clang -j$(nproc)
+container_prompt> CXX='ccache clang++' meson setup -Db_asneeded=false _build_clang
+container_prompt> meson compile -v -C _build_clang -j$(nproc)
 container_prompt> ./_build_clang/bin/ssi
 Number of threads: 4
 Local time: 2022-Sep-04 15:21:20

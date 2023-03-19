@@ -14,8 +14,7 @@ fi
 source_files=$(find bin/ include/ lib/ -name '*.[h|c]pp')
 build_dir=_build_clang_tidy
 rm -fr $build_dir
-CXX="$clang_exe" meson $build_dir
-sed -i 's/-pipe//g' $build_dir/compile_commands.json
+CXX="$clang_exe" meson setup $build_dir
 echo "starting clang-tidy"
 $clang_tidy_exe -p $build_dir --quiet $source_files 2>/dev/null
 echo "clang-tidy has finished"

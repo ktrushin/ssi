@@ -15,6 +15,7 @@ int main(int argc, const char* argv[]) {
     ("version,v", "Print version");
   // clang-format on
 
+  // NOLINTNEXTLINE(readability-identifier-length)
   po::variables_map vm;
 
   try {

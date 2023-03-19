@@ -3,7 +3,7 @@ libssi_doxyfile = configure_file(
   output: 'doxyfile',
   configuration: configuration_data({
     'project_version': meson.project_version(),
-    'project_source_root': meson.source_root(),
+    'project_source_root': meson.project_source_root(),
     'current_build_dir': meson.current_build_dir()
   }))
 
