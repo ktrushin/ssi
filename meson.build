@@ -22,11 +22,7 @@ cpp_args = ['-Wconversion']
 if get_option('buildtype') == 'release'
   cpp_args += ['-fvisibility=hidden']
 endif
-
 link_args = []
-if get_option('b_asneeded') == false
-  link_args += ['-Wl,--no-as-needed']
-endif
 
 # These compiler and linker options ensure source code hardening
 # required by debian packaging.
