@@ -67,6 +67,22 @@ Number of threads: 4
 Local time: 2022-Sep-04 15:21:20
 ```
 
+Note. If one wants to limit the number of parallel linkage jobs, she can use the
+`backend_max_links` option for the `meson setup` command. Providing that a
+linkage job doesn't use more than 3GB of RAM, the example below determines
+whether the CPU or the RAM limits the linkage parallelism and adjusts the number
+of jobs accordingly:
+```shell
+container_prompt> meson setup \
+    -Dbackend_max_links=$(
+        free --giga |
+        awk -v cpu_count=$(nproc) -v gb_per_thread=3 'NR==2{
+            job_count=int($2 / gb_per_thread);
+            print job_count < cpu_count ? job_count : cpu_count
+        }') \
+    _build
+```
+
 Install and uninstall:
 ```
 container_prompt> sudo ninja -v -C _build_gcc install
