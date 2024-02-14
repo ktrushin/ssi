@@ -44,7 +44,7 @@ link_hardeining_args = [
 cpp_args += cpp_hardening_args
 link_args += link_hardeining_args
 
-jemalloc_dep = meson.get_compiler('cpp').find_library('jemalloc')
+jemalloc_dep = dependency('jemalloc')
 
 subdir('include')
 subdir('lib')
